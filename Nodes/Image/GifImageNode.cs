@@ -100,7 +100,7 @@ public class GifImageNode : ResNode {
                 .Build());
 
             unsafe {
-                InternalResNode->Timeline->PlayAnimation(AtkTimelineJumpBehavior.LoopForever, 200);
+                InternalResNode->Timeline->PlayAnimation(AtkTimelineJumpBehavior.LoopForever, (ushort)200);
             }
 
             await DalamudInterface.Instance.Framework.RunOnFrameworkThread(() => {
