@@ -1,4 +1,4 @@
-﻿using FFXIVClientStructs.FFXIV.Component.GUI;
+using FFXIVClientStructs.FFXIV.Component.GUI;
 using KamiToolKit.NodeParts;
 using KamiToolKit.System;
 
@@ -30,7 +30,7 @@ public unsafe class ImageNode : NodeBase<AtkImageNode> {
 
     public ImageNodeFlags ImageNodeFlags {
         get => (ImageNodeFlags)InternalNode->Flags;
-        set => InternalNode->Flags = (byte)value;
+        set => InternalNode->Flags = (FFXIVClientStructs.FFXIV.Component.GUI.ImageNodeFlags)value;
     }
 
     protected override void Dispose(bool disposing) {

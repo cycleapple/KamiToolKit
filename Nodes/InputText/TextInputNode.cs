@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -168,7 +168,7 @@ public unsafe class TextInputNode : ComponentNode<AtkComponentTextInput, AtkUldC
     }
 
     public SeString String {
-        get => SeString.Parse(Component->UnkText1);
+        get => SeString.Parse(Component->EvaluatedString);
         set => Component->SetText(value.ToString());
     }
 
@@ -195,7 +195,7 @@ public unsafe class TextInputNode : ComponentNode<AtkComponentTextInput, AtkUldC
         originalFunction(listener, numEvents);
 
         try {
-            OnInputReceived?.Invoke(SeString.Parse(Component->UnkText1));
+            OnInputReceived?.Invoke(SeString.Parse(Component->EvaluatedString));
         }
         catch (Exception e) {
             Log.Exception(e);
@@ -211,7 +211,7 @@ public unsafe class TextInputNode : ComponentNode<AtkComponentTextInput, AtkUldC
     }
 
     private void InputComplete(AddonEventData data)
-        => OnInputComplete?.Invoke(SeString.Parse(Component->UnkText1));
+        => OnInputComplete?.Invoke(SeString.Parse(Component->EvaluatedString));
 
     protected override void OnSizeChanged() {
         base.OnSizeChanged();
